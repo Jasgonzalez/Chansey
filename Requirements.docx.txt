@@ -1,0 +1,401 @@
+﻿Software Requirements Specification
+	CMSC 355 - Fundamentals of Software Engineering
+	
+
+
+
+Software Requirement Specification
+Group members
+	Ty Battle 
+	Hudson Finocchio
+	Govan Henry
+	Jason Gonzalez
+	Katherine Leon
+	Arnav Mohapatra
+	Stephen Russell
+	
+
+1. Project Description
+The Medication Adherence System is an innovative platform designed to enhance patient engagement and ensure timely medication intake. By sending automated reminders via SMS, email, or app notifications, the system prompts patients to take their medications as prescribed, reducing the risk of missed doses. Users can easily log their medication intake, enabling real-time tracking of adherence patterns.
+Additionally, the platform compiles comprehensive reports on patient adherence and sends them to healthcare providers, facilitating better-informed decisions and personalized care plans. The system will enable users access to request refills and easier contact with healthcare providers, all easily accessible with their app. By addressing the critical issue of non-adherence, the Medication Adherence System aims to improve health outcomes, reduce hospitalizations, and empower patients to take control of their treatment journeys.
+
+
+2. Functional Requirements
+FR01
+	The software must be able to display schedule of medication intake for user and Healthcare providers to see
+	FR02
+	The software must report non-adherence to healthcare provider after a certain amount of missed times by the User
+	FR03
+	The software must be able to send reminder notifications  to user on times and days they are scheduled to take their medication
+	FR04
+	The software must have an Emergency button for user to contact emergency services
+	FR05
+	The software must allow the User to edit profile with contact info and medical records
+	FR06
+	The software must be able to send alerts to User’s healthcare provider with unread urgent request within 24 hours to prioritize
+	FR07
+	The software must be able to allow the User to send medication refill request to provider and pharmacy
+	FR08
+	The software must able to Notify the user when medication is running low
+	FR09
+	The software must allow User to control what information is shared with healthcare providers
+	FR10
+	The software must be able to display guidelines to User on how to use medication properly upon request
+	FRN
+	
+
+	
+
+3. Non-Functional Requirements
+NFR01
+	Data only accessible by User and specified Healthcare provider, access restricted to others
+	NFR02
+	Notifications should be sent no later than 15 minutes of request time
+	NFR03
+	Report of adherence should not be able to be edited by Healthcare provider, or by the User after 3 days of scheduled medicine intake
+	NFR04
+	The system should support English and Spanish to cater to diverse patient populations, enhancing accessibility and usability.
+	NFR05
+	App should be able to handle up to 100 different users at any given time
+	NFRN
+	
+
+	
+
+
+
+4. Use Case Specification
+UC01 Name:
+	Medicine Alert
+	Description:
+	This software sends the care provider a text/email if a patient is missing medication intake over time(depending on medicine). The care provider can set the time constraints for the notifications, 
+	Actor:
+	Patient
+	Entry condition:
+	The actor clicks on the medicine alert option
+	Basic path:
+	1. The actor enters the site
+* System displays a menu [PRO01]
+   * Profile
+   * Medicine [UC03]
+   * Emergency 
+   * Options
+   * Logout
+2. Actor selects Profile [A01]
+3. Actor selects emergency [PRO02]
+* System presents a screen with more options and exit
+   * Request refill
+   * Update dose
+   * Contact doctor or emergency services
+4. Actor selects update dose [A02]
+5. If actor does not choose option to update dosage, notifications will be displayed by system until update completed [E01]
+6. Actor selects options[A03]
+7. Actor selects logout [A04]
+	Alternative paths:
+	[A01] Actor clicks on “Profile”
+1. System presents a screen that has editable fields and a save button
+        - Name
+        - Update Address
+        - List Doctor and Doctor number
+        - List Pharmacy number and fax 
+[A02] Actor clicks on “update dose”
+   1. System displays a schedule that the patient should be following with each day having the name of the medicine, the dose, and whether or not the patient took the medicine. User makes changes to update doses taken.
+[A03] Actor clicks on “options”
+   1. System presents a screen that has buttons for notifications and settings
+   * Choice of notification either through text and/or email
+   * editable field for user input for phone number and/or email address for notification
+[A04] Actor clicks on “logout”
+   1. System prompts user to confirm “logout”
+   2. User confirms and exits the user profile and closes the webpage. 
+   3. System will close and return to the login screen.
+   4. Or the user does not confirm and the system returns to the home page
+
+
+	Exception paths:
+	[E01] Network issues
+   1. Failures in the notification system such as network issues will cause an error message to be displayed. The notification will be presented within the next 24 hours.
+	Business Rules:
+	[BR01] . Restricted access to non user or non providers file
+[BR02] . Unique usernames must identify users and providers 
+
+
+	Data description
+	
+
+Name
+	Type
+	Length 
+	Mask
+	
+
+	Patient User Name
+	String
+	35
+	-
+	
+
+	Name
+	String
+	50
+	-
+	
+
+	Medication
+	String 
+	35
+	LexXXXX only display first three characters
+	
+
+	Doses Missed
+	String
+	30
+	-
+	
+
+	
+
+	Prototype:
+	[PRO01] Menu to select options
+
+
+  
+
+
+
+[PRO02] Emergency sub menu with other options
+  
+
+
+
+	
+
+________________
+
+
+
+
+UC02 Name:
+	User receives an alert to take medication 
+	Description:
+	The System alerts users to take medication through app notifications, emails, and SMS links to receive a status update regarding the dosages
+	Actor:
+	User
+	Entry condition:
+	Either in app notification,  sms link, or email link to update status of dosage taken
+	Basic path:
+	   8. App notification alerts user to take medication with string of users choosing [PRO01]
+- Option of yes dose taken 
+-Remind me later option
+- User closes out of notification
+   9. Yes Dose taken Option by User [A01]
+   10. User chooses Remind me Later [A02]
+   11.  User chooses to close out of notification [A03]
+	Alternative paths:
+	[A01] Option Yes dose Taken selected
+   1. System displays option to notate medicine taken and to review other doses for the month or exit site
+   2. User notates medication and dose taken, updates log
+   3. Gives option to review or to close site 
+[A02] Remind me Later option selected
+   1. System displays screen to show reminder choices [PRO02]
+   * User chooses from 5 radial buttons on when to receive another notification
+[A03] 
+   2. User exits out of alert, route to refill or contact provider 
+	Exception paths:
+	[E01] 
+   2. If user fails to update at all about dose information 
+
+
+	Business Rules:
+	[BR01] . Report updated for doses taken for user and provider
+[BR02] . Notification must be sent until update provided by user
+
+
+	Data description
+	
+
+Name
+	Type
+	Length 
+	Mask
+	
+
+	Medication
+	String
+	35
+	   * 	
+
+	Dose taken
+	String
+	30
+	   * 	
+
+	Dose missed
+	String 
+	30 
+	   * 	
+
+	Request Refill
+	String
+	30
+	
+
+	
+
+	
+
+	Prototype:
+	[PRO01]
+  
+
+[PRO02]
+  
+
+	
+
+________________
+
+
+
+
+UC03 Name:
+	Update Medicine
+	Description:
+	Care provider can update, add, and view the medications on file for a patient.
+	Actor:
+	Care provider 
+	Entry condition:
+	Actor selects medication settings for a certain user
+	Basic path:
+	   12. Care provider selects “Medicine” button
+-Systems Presents screen requesting Patient information (already logged in so probably would not need, have a one time login) [E01] [PRO01] 
+- Update Current Medication Button [A01]
+- Add New Medication Button [A02]
+- View Medications Button [A03] 
+
+
+	Alternative  paths:
+	[A01] Update Current Medication
+   1. Actor selects the update medication button[E03]
+System presents a screen to Update a current medication with editable fields [PRO02] 
+   * Medication Type(Pill, liquid, eye drop, etc)(editable)
+   * Medication Name
+   * Start Date
+   * Frequency(editable)
+   * Dosage(editable)
+   * Window of time before it alarms Care Provider(editable)
+   2. Actor edits the editable fields[E02]
+[A02] Add New Medication
+   1. Actor selects Add New Medication button[E03]
+System presents a screen to input a new medication [PRO03] 
+   * Medication Type(Pill, liquid, eye drop, etc)(editable)
+   * Medication Name(editable)
+   * Start Date(editable)
+   * Frequency(editable)
+   * Dosage(editable)
+   * Window of time before it alarms Care Provider(editable)
+   2. Actor fills in the editable fields[E02]
+System displays message that edits are complete
+returns actor to new medication screen
+[A03] View Current Medications
+System displays a list of current medications the patient is taking
+      3. Actor can select a medication to see the details of the selected medication [PRO04] 
+      * Medication Type(Pill, liquid, eye drop, etc)
+      * Medication Name
+      * Start Date
+      * Frequency
+      * Dosage
+      * Window of time before it alarms Care Provider
+         System returns actor to Medicine screen after exiting
+	Exception paths:
+	[E01] Invalid Patient
+      * Inputted patient does not exist causing an error pop-up to show on screen and return to information entering.
+[E02] Empty field
+      * Actor did not fill in all fields
+      * Shows a pop-up that says “All fields must be filled” and highlights empty fields in red
+[E03] Invalid User Permissions
+      * Throws an error if user does not have actor’s permissions
+      * Pop-up shows briefly that says “Current user does not have the permissions to access this”
+      * Returns to Medicine Menu
+
+
+	Business Rules:
+	[BR01] All attributes are mandatory.
+[BR02] Actor (provider) has special access that user cannot edit
+
+
+	Data description
+	
+
+Name
+	Type
+	Length 
+	Mask
+	
+
+	Medication Type
+	String
+	20
+	
+
+	
+
+	Medication Name
+	String
+	100
+	
+
+	
+
+	Start Date
+	String
+	10
+	MM/DD/YYYY
+	
+
+	Frequency
+	String
+	30
+	
+
+	
+
+	Dosage
+	String
+	30
+	Units? mg, g, etc.
+	
+
+	Window of time before it alarms Care Provider
+	String
+	50
+	
+
+	
+
+	
+
+	Prototype:
+	[PRO01]
+  
+
+
+
+
+
+[PRO02]
+  
+
+
+
+
+
+
+
+
+
+
+
+[PRO03]
+  
+
+[PRO04]
