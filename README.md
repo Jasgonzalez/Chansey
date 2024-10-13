@@ -1,8 +1,10 @@
 My groupmembers are:
-- XXXX
-- XXXX
-- XXXX
-- XXXX
+- Jason Gonzalez
+- Hudson Finocchio
+- Arnav Mohapatra
+- Katherine Leon
+- Stephen Russel
+- Ty Battle
 
 
------------------- Fill in some information about your project under this ------------------
+Chansey is a medication adherance web app that will
