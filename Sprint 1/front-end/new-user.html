@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="main.js" />
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="main.html">Home</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+    <div class="login-container">
+      <div class="login-form">
+        <form id="signup-form">
+          <h2>User  Sign Up</h2>
+
+          <label for="full-name">Full Name</label>
+          <input type="text" id="signup-full-name" required /><br /><br />
+
+          <label for="birthdate">Birthdate</label>
+          <input type="date" id="signup-birthdate" required /><br /><br />
+
+          <label for="ssn">Social Security Number</label>
+          <input type="text" id="signup-ssn" required /><br /><br />
+
+          <label for="username">Username</label>
+          <input type="text" id="signup-username" required /><br /><br />
+
+          <label for="password">Password</label>
+          <input type="password" id="signup-password" required /><br /><br />
+
+          <button type="submit" class="login">Submit</button>
+          <p id="signup-error" style="color: red"></p>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

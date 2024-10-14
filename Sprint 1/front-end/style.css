@@ -1,0 +1,139 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'ArcadeClassic', sans-serif;
+    
+
+
+}
+
+
+ul{
+    list-style: none;
+}
+
+li{
+
+}
+
+a{
+    text-decoration: none;
+}
+
+.container{
+    background-color: pink;
+    height: 100vh;
+}
+
+nav{
+    background-color: gray;
+    padding: 15px;
+}
+
+nav ul{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+nav ul li{
+
+}
+
+nav ul li a{
+    font-size: 30px;
+    padding: 2rem;
+    color: black;
+}
+
+nav ul li a:hover{
+    background-color: lightgray;
+    border-radius: 30rem;
+}
+
+
+
+.chansey-txt{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 70px;
+    height: 89vh;
+}
+
+
+.btn{
+    padding-top: 1rem;
+
+}
+
+.login{
+    font-size: 30px;
+    padding: 10px;
+    border-radius: 20rem;
+    width: 15rem;
+    display: inline-block; 
+
+
+}
+
+.login:hover{
+    background-color: rgb(217, 87, 113);
+}
+
+
+/* Center the login form and add a box shadow */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 89vh; /* Full viewport height */
+    background-color: pink;
+  }
+  
+  .login-form {
+    background-color: white;
+    padding: 4rem;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    text-align: center;
+    width: 400px; /* Control the width of the form */
+  }
+
+ 
+  /* Style the input fields */
+  input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .login-form h2{
+    padding-bottom: 2rem;
+    font-size: 2rem;
+  }
+  
+  /* Style the submit button */
+  .login {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .login:hover {
+    background-color: #45a049;
+  }
+  
+  /* Add some margin between the checkbox and its label */
+  #remember {
+    margin-right: 5px;
+  }
