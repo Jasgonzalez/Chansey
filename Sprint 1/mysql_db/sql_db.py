@@ -9,7 +9,8 @@ def create_db_and_connection():
         connection = mysql.connector.connect(
             host='localhost',
             user='leonkat355',
-            password = 'chansey#355'
+            password = 'chansey#355',
+            database = 'medicinelog.medquer'
         )
 
         if connection.is_connected():
@@ -25,15 +26,21 @@ def create_db_and_connection():
         return None
     
 conn = create_db_and_connection()
-#if conn:
+if conn:
 
     #operations to use database will be here
-   # def create_entry(connection, medicine_data):
-      #  cursor = connection.cursor()
-     #   sql_insert_query = 
+   def create_entry(connection, medicine_data):
+        cursor = connection.cursor()
+        sql = "INSERT INTO medicinelog.medquer (medname, medtype, startdate, freq, alarmtime) VALUES (%s, %s, %d, %s, %d)"
+        medicineval = input ("Enter medicine name:")
+        medtype = input("Enter type of medicine")
+        startdate = input("Enter start date")
+        freq = input("Enter frequency of dose")
+        alarmtime = input("Enter a time to remind you to take dose:")
 
-            
-    
+        cursor.execute(sql, medicineval, medtype, startdate, freq, alarmtime) 
 
-    #conn.close()
+        connection.commit()
+
+conn.close()
 
