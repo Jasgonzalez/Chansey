@@ -7,19 +7,19 @@ def create_db_and_connection():
 
     try:
         connection = mysql.connector.connect(
-            host='localhost',
-            user='leonkat355',
-            password = 'chansey#355',
-            database = 'medicinelog.medquer'
+            host='chansey-db.c1es26gc2k7l.us-east-2.rds.amazonaws.com',
+            user='admin',
+            password = 'ch8trabrabru',
+            database = 'chansey-db'
         )
 
         if connection.is_connected():
             cursor = connection.cursor()
-            cursor.execute("CREATE DATABASE IF NOT EXISTS medicinelog")
-            connection.database = 'medicinelog' 
+            cursor.execute("CREATE DATABASE IF NOT EXISTS chansey-db")
+            connection.database = 'chansey-db' 
             #this will switch to the new database
 
-            print("Database 'medicinelog' created or already exists.")
+            print("Database 'chansey-db' created or already exists.")
             return connection
     except Error as e:
         print(f"Error: {e}")
@@ -31,7 +31,7 @@ if conn:
     #operations to use database will be here
    def create_entry(connection, medicine_data):
         cursor = connection.cursor()
-        sql = "INSERT INTO medicinelog.medquer (medname, medtype, startdate, freq, alarmtime) VALUES (%s, %s, %d, %s, %d)"
+        sql = "INSERT INTO chansey-db (medname, medtype, startdate, freq, alarmtime) VALUES (%s, %s, %d, %s, %d)"
         medicineval = input ("Enter medicine name:")
         medtype = input("Enter type of medicine")
         startdate = input("Enter start date")
