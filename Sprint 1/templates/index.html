@@ -13,11 +13,12 @@
         <!-- Add Medication Form -->
         <form action="/add" method="POST">
             <h2>Add New Medication</h2>
-            <div class="form-group">
+           <div class="form-group">
                 <label for="med_name">Medication Name:</label>
-                <input type="text" id="med_name" name="med_name" required>
+                <input type="text" id="med_name" name="med_name" pattern="[A-Za-z\s]+" title="Medication name should only contain letters and spaces." required>
+                <span class="error-message" id="med_name_error" style="display: none; color: red;">Invalid input. Only letters and spaces are allowed.</span>
             </div>
-            <div class="form-group">
+           <div class="form-group">
                 <label for="med_type">Medication Type:</label>
                 <select id="med_type" name="med_type" required>
                     <option value="Tablet">Tablet</option>
@@ -28,14 +29,16 @@
                     <option value="Ointment">Ointment</option>
                 </select>
             </div>
-            <div class="form-group">
+            <div class="form-group"> 
                 <label for="dosage">Dosage:</label>
-                <input type="text" id="dosage" name="dosage" required>
+                <input type="text" id="dosage" name="dosage" pattern="[A-Za-z0-9\s]+" title="Dosage should only contain numbers, letters, and spaces." required>
+                <span class="error-message" id="dosage_error" style="display: none; color: red;">Invalid input. Only numbers, letters, and spaces are allowed.</span>
             </div>
             <div class="form-group">
                 <label for="start_date">Start Date:</label>
                 <input type="date" id="start_date" name="start_date" required>
             </div>
+
             <div class="form-group">
                 <label for="frequency">Frequency:</label>
                 <select id="frequency" name="frequency" required>
@@ -43,7 +46,7 @@
                     <option value="Once a Week">Once a Week</option>
                     <option value="Twice a Week">Twice a Week</option>
                     <option value="Once Every Other Day">Once Every Other Day</option>
-                    <option value="Once Every Two Weeks">Once Every Two Weeks</option>
+                    <option value="Once Every Two Weeks"> Once Every Two Weeks</option>
                     <option value="Once a Month">Once a Month</option>
                 </select>
             </div>
@@ -68,5 +71,28 @@
             </div>
         {% endfor %}
     </div>
+    <script>
+        // Set the minimum date for the start_date input to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('start_date').setAttribute('min', today);
+
+        // Medication name validation
+        const medNameInput = document.getElementById('med_name');
+        const medNameError = document.getElementById('med_name_error');
+
+        medNameInput.addEventListener('input', function() {
+            const isValid = /^[A-Za-z\s]+$/.test(medNameInput.value);
+            medNameError.style.display = isValid ? 'none' : 'block';
+        });
+
+        // Dosage validation
+        const dosageInput = document.getElementById('dosage');
+        const dosageError = document.getElementById('dosage_error');
+
+        dosageInput.addEventListener('input', function() {
+            const isValid = /^[A-Za-z0-9\s]+$/.test(dosageInput.value);
+            dosageError.style.display = isValid ? 'none' : 'block';
+        });
+    </script>
 </body>
 </html>
