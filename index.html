@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reminders</title>
+    <link rel="stylesheet" href="style.css"> <!--css file-->
+</head>
+<body>
+    <div class="container"> 
+        <h1>Reminder Notification</h1>
+            <div class="form-group">
+                <label for="med_name">Medication Name:</label> <!--MEd NAme text box-->
+                <input type="text" id="med_name" name="med_name" pattern="[A-Za-z\s]+" title="Medication name should only contain letters and spaces." required>
+                <span class="error-message" id="med_name_error" style="display: none; color: red;">Invalid input. Only letters and spaces are allowed.</span>
+            </div>
+
+            <div class="form-group">
+                <label for="Reminder_time">Reminder Time</label> <!--Time of reminder(change options)-->
+                <select type="text" id="Reminder_time">
+                    <option value="1am">1:00</option>
+                    <option value="1am">2:00</option>
+                    <option value="1am">3:00</option>
+                    <option value="1am">4:00</option>
+                    <option value="1am">5:00</option>
+                    <option value="1am">6:00</option>
+                    <option value="1am">7:00</option>
+                    <option value="1am">8:00</option>
+                    <option value="1am">9:00</option>
+                    <option value="1am">10:00</option>
+                    <option value="1am">11:00</option>
+                    <option value="1am">12:00</option>
+                </select>
+                <select type="text" id="AM_PM">
+                    <option value="AM">AM</option>
+                    <option value="PM">PM</option>
+                </select>
+                
+            </div>
+
+            
+
+            <div class="form-group"> 
+                <label for="dosage">Notification Type</label><!--Sms/email dropdown-->
+                <select type="text" id="Med_type" name="Medication Type" required>
+                    <option value=" ">--Select--</option>
+                    <option value ="Email">Email</option>
+                    <option value = "SMS">SMS</option>
+                    <option value="AppNoti"> App Notification</option>
+                <select>
+            </div>
+            
+
+            <div class="form-group"> 
+                <label for="start_date">Start Date (MM/DD/YYYY):</label><!--Start Date Bpx-->
+                <input type="date" id="start_date" name="start_date" class="start-date" required> 
+            </div>
+
+            <div class="form-group"> 
+                <label for="frequency"> Notification Frequency:</label><!--Frequency Dropdown-->
+                <select type="text" id="frequency" name="frequency" required>
+                    <option value="select">--Select--</option>
+                    <option value = "every 15 mins">Every 15 mins</option>
+                    <option value = "Every 30 mins">Every 30 mins</option>
+                    <option value = "Once a hour">Once a hour</option>
+                    <option value = "Once every 2 hours">Once Every 2 hours</option>
+                <select>
+            </div>
+
+            <button type="submit" class="btn">Submit Form</button>    
+    </div>
