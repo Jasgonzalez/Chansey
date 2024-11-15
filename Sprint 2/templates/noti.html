@@ -107,13 +107,21 @@
                     <p>{{ notification.user_phone }}</p>
                 </div>
                 
-                <!-- Delete Button -->
-                <form action="/delete_notification/{{ notification.id }}" method="POST" style="margin-top: 10px;">
+                <!-- Delete Button with Confirmation -->
+                <form action="/delete_notification/{{ notification.id }}" method="POST" style="margin-top: 10px;" onsubmit="return confirmDelete();">
                     <button type="submit" class="btn btn-danger">Delete Notification</button>
                 </form>
                 <hr>
             </div>
         {% endfor %}
     </div>
+    
+    <script>
+        // JavaScript function for confirmation
+        function confirmDelete() {
+            return confirm("Are you sure you want to delete this notification?");
+        }
+    </script>
+    
 </body>
 </html>
