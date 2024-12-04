@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency</title>
+    <link rel="stylesheet" href="Styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Emergency/Refill Menu</h1>
+        
+        <form action="/add" method="POST">
+            <h2>Request Refill</h2>
+
+           <div class="form-group">
+                <label for="med_name">Medication Name:</label>
+                <input type="text" id="med_name" name="med_name" pattern="[A-Za-z\s]+" title="Medication name should only contain letters and spaces." required>
+            </div>
+
+           <div class="form-group">
+                <label for="med_type">Medication Type:</label>
+                <select id="med_type" name="med_type" required>
+                    <option value="">-select-</option>
+                    <option value="Tablet">Tablet</option>
+                    <option value="Liquid">Liquid</option>
+                    <option value="Injection">Injection</option>
+                    <option value="Capsule">Capsule</option>
+                    <option value="Drops">Drops</option>
+                    <option value="Ointment">Ointment</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Pickup_Date">Pick-Up Date:</label>
+                <input type="date" id="Pick-Up_date" name="Pick-Up_date" required>
+            </div>
+
+            <button type="submit"   class="btn">Submit Request</button>
+        
+        </form>
+       
+        
+        <form action="/add" method="POST">
+            <h2>Contact EMS</h2>
+           <div class="form-group">
+                <label for="hospital_name">Hospital Name</label>
+                <input type="text" id="hospital_name" name="hospital_name"  placeholder="Ex: Chansey Hospital"     pattern="[A-Za-z\s]+"  required>
+                
+            </div>
+
+           <div class="form-group">
+                <label for="hospital_address">Hospital Address</label>
+                <input type="text" id="hospital_address" name="hospital_address"  placeholder="Ex: 123 sesame street"    pattern="[0-9A-Za-z\s]+"  required>
+                
+            </div>
+
+            <div class="form-group"> 
+                <label for="hospital_phone">Hospital Phone Number:<br /></label>
+                <input type="tel" id="hospital_phone" name="dosage"  placeholder="Ex: 123-456-7890"    pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"  required>
+            </div>
+
+            <div class="form-group">
+                <label for="Ambulance_Request">Ambulance Needed?</label>
+                <input type="radio" id="Yes" name="Ambulance_Request" required>
+                <label for="Yes">Yes</label>
+                <input type="radio" id="No" name="Ambulance_Request" required>
+                <label for="No">No</label>
+            </div>
+
+            <div class="form-group">
+                <label for="home_address">Home Address</label>
+                <input type="text" id="home_address" name="home_address"  placeholder="Ex: 123 sesame street"    pattern="[0-9A-Za-z\s]+"  required>
+                
+            </div>
+
+            <div class="form-group"> 
+                <label for="personal_phone"> Personal Phone Number:<br /></label>
+                <input type="tel" id="personal_phone" name="personal_phone"  placeholder="Ex: 123-456-7890"    pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"  required>
+            </div>
+
+            <div class="form-group">
+                <label for="EMS_description">Brief Description of Emergency:</label>
+                <input type="text" id="EMS_description" name="EMS_description"  placeholder=" Ex: I broke my pinky toe."   required>
+            </div>
+
+            <button type="submit"  class="btn">Contact Services</button>
+
+        </form>
+     
+</body>
+</html>
